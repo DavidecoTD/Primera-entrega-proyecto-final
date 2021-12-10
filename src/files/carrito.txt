@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "timestamp": "18:11:15",
+    "productos": [
+      {
+        "id": 5,
+        "timestamp": "23:53:12",
+        "nombre": "Cinta metrica",
+        "descripcion": "cinta metrica 100cm",
+        "codigo": "CD2020212",
+        "precio": 70,
+        "stock": 10,
+        "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "timestamp": "18:23:16",
+    "productos": [
+      {
+        "id": 3,
+        "timestamp": "23:50:53",
+        "nombre": "Calculadora",
+        "descripcion": "calculadora digital",
+        "codigo": "CD202023",
+        "precio": 80,
+        "stock": 12,
+        "thumbnail": "http://localhost:8080/images/16391118532591638512009169calculadora.jpg"
+      },
+      {
+        "id": 5,
+        "timestamp": "23:53:12",
+        "nombre": "Cinta metrica",
+        "descripcion": "cinta metrica 100cm",
+        "codigo": "CD2020212",
+        "precio": 70,
+        "stock": 10,
+        "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestamp": "18:23:24",
+    "productos": [
+      {
+        "id": 5,
+        "timestamp": "23:53:12",
+        "nombre": "Cinta metrica",
+        "descripcion": "cinta metrica 100cm",
+        "codigo": "CD2020212",
+        "precio": 70,
+        "stock": 10,
+        "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "timestamp": "18:24:23",
+    "productos": [
+      {
+        "id": 5,
+        "timestamp": "23:53:12",
+        "nombre": "Cinta metrica",
+        "descripcion": "cinta metrica 100cm",
+        "codigo": "CD2020212",
+        "precio": 70,
+        "stock": 10,
+        "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
+      },
+      {
+        "id": 2,
+        "timestamp": "23:50:24",
+        "nombre": "Regla",
+        "descripcion": "Regla 90cm",
+        "codigo": "CD20202",
+        "precio": 100,
+        "stock": 15,
+        "thumbnail": "http://localhost:8080/images/16391118245491638511970194regla.jpg"
+      },
+      {
+        "id": 1,
+        "timestamp": "23:49:31",
+        "nombre": "Escuadra",
+        "descripcion": "Escuadra de 45 grados",
+        "codigo": "CD20201",
+        "precio": 50,
+        "stock": 30,
+        "thumbnail": "http://localhost:8080/images/16391117712811638511937744escuadra.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "timestamp": "18:24:27",
+    "productos": [
+      {
+        "id": 1,
+        "timestamp": "23:49:31",
+        "nombre": "Escuadra",
+        "descripcion": "Escuadra de 45 grados",
+        "codigo": "CD20201",
+        "precio": 50,
+        "stock": 30,
+        "thumbnail": "http://localhost:8080/images/16391117712811638511937744escuadra.jpg"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "timestamp": "18:30:12",
+    "productos": []
+  },
+  {
+    "id": 7,
+    "timestamp": "18:30:25",
+    "productos": []
+  }
+]

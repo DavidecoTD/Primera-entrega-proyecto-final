@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "timestamp": "23:49:31",
+    "nombre": "Escuadra",
+    "descripcion": "Escuadra de 45 grados",
+    "codigo": "CD20201",
+    "precio": 50,
+    "stock": 30,
+    "thumbnail": "http://localhost:8080/images/16391117712811638511937744escuadra.jpg"
+  },
+  {
+    "id": 2,
+    "timestamp": "23:50:24",
+    "nombre": "Regla",
+    "descripcion": "Regla 90cm",
+    "codigo": "CD20202",
+    "precio": 100,
+    "stock": 15,
+    "thumbnail": "http://localhost:8080/images/16391118245491638511970194regla.jpg"
+  },
+  {
+    "id": 3,
+    "timestamp": "23:50:53",
+    "nombre": "Calculadora",
+    "descripcion": "calculadora digital",
+    "codigo": "CD202023",
+    "precio": 80,
+    "stock": 12,
+    "thumbnail": "http://localhost:8080/images/16391118532591638512009169calculadora.jpg"
+  },
+  {
+    "id": 4,
+    "timestamp": "23:51:30",
+    "nombre": "Globo terraqueo",
+    "descripcion": "globo terraqueo 60cm de diamtero",
+    "codigo": "CD202020",
+    "precio": 120,
+    "stock": 12,
+    "thumbnail": "http://localhost:8080/images/16391118908921638511990386globo.jpg"
+  },
+  {
+    "id": 5,
+    "timestamp": "23:53:12",
+    "nombre": "Cinta metrica",
+    "descripcion": "cinta metrica 100cm",
+    "codigo": "CD2020212",
+    "precio": 70,
+    "stock": 10,
+    "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
+  }
+]
