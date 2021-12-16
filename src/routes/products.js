@@ -1,12 +1,14 @@
-const express = require('express');
-const upload = require('../services/uploader');
+import express from 'express';
+import upload from '../services/uploader.js';
+import Manager from '../classes/manager.js';
+import {authMiddleware} from '../utils.js';
+import __dirname from '../utils.js';
 const router = express.Router();
-const Manager = require('../classes/manager');
 const manager = new Manager(); 
-const authMiddleware = require('../utils');
 
 //GET
 router.get('/', (req,res) => {
+
     manager.getAll().then(result => {
         let arreglo = result.products;
         console.log(result)
@@ -23,7 +25,7 @@ router.get('/:pid',(req,res) => {
     let id = req.params.pid;
     id = parseInt(id);
     manager.getproductById(id).then(result => {
-        res.send(result.product);
+        res.send(result);
     })
 })
 
@@ -31,7 +33,6 @@ router.get('/:pid',(req,res) => {
 router.post('/',authMiddleware, upload.single('image'), (req,res) => {
     let file = req.file;
     let cuerpo = req.body;
-    console.log(__dirname)
     cuerpo.precio = parseInt(cuerpo.precio)
     cuerpo.stock = parseInt(cuerpo.stock)
     cuerpo.thumbnail = req.protocol+"://"+req.hostname+":8080"+'/images/'+file.filename;
@@ -57,4 +58,4 @@ router.delete('/:pid',authMiddleware,(req,res) => {
     })
 })
 
-module.exports = router;
+export default router;

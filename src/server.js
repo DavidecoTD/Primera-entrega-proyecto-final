@@ -1,14 +1,16 @@
-const express = require('express');
-const {engine} = require('express-handlebars');
-const cors = require('cors');
-const {Server} = require('socket.io');
-const Manager  = require('./classes/manager');
-const productRouter = require('./routes/products');
-const carritoRouter = require('./routes/carrito');
-const upload = require('./services/uploader');
+import express from 'express';
+import {engine} from 'express-handlebars';
+import cors from 'cors';
+import {Server} from 'socket.io';
+import Manager  from './classes/manager.js';
+import productRouter from './routes/products.js';
+import carritoRouter from './routes/carrito.js';
+import upload from './services/uploader.js';
+import {authMiddleware} from './utils.js';
+import __dirname from './utils.js';
 const manager = new Manager();
 const app = express();
-const authMiddleware = require('./utils');
+
 
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => {

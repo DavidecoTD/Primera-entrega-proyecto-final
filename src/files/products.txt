@@ -31,12 +31,12 @@
   },
   {
     "id": 4,
-    "timestamp": "23:53:12",
-    "nombre": "Cinta metrica",
-    "descripcion": "cinta metrica 100cm ddd",
-    "codigo": "CD202023",
+    "timestamp": "23:00:35",
+    "nombre": "Cinta metrica unversal",
+    "descripcion": "cinta metrica 100cm multi usos",
+    "codigo": "CD2020653",
     "precio": 70,
-    "stock": 10,
+    "stock": 15,
     "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
   },
   {
@@ -57,6 +57,16 @@
     "codigo": "cdd55335",
     "precio": 50,
     "stock": 14,
-    "thumbnail": "http://localhost:8080/images/1639631864563sd100wifi 155.jpg"
+    "thumbnail": "http://localhost:8080/images/16391118245491638511970194regla.jpg"
+  },
+  {
+    "id": 7,
+    "timestamp": "17:03:32",
+    "nombre": "Cinta metrica stanly",
+    "descripcion": "Cinta en",
+    "codigo": "CD202351",
+    "precio": 30,
+    "stock": 50,
+    "thumbnail": "http://localhost:8080/images/1639692212255Cintametricasantley.jpg"
   }
 ]

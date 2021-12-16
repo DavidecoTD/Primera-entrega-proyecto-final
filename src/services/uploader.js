@@ -1,5 +1,5 @@
-const multer = require('multer');
-
+import multer from 'multer';
+import __dirname from '../utils.js';
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         if(file.fieldname==="image"){
@@ -17,4 +17,4 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage:storage});
 
-module.exports = upload;
+export default upload;

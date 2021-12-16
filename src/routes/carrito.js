@@ -1,7 +1,8 @@
-const express = require('express');
-const upload = require('../services/uploader');
+import express from 'express';
+import upload from '../services/uploader.js';
+import Manager from '../classes/manager.js';
+import authMiddleware from '../utils.js';
 const router = express.Router();
-const Manager = require('../classes/manager');
 const manager = new Manager(); 
 
 //POST
@@ -43,4 +44,4 @@ router.delete('/:id/productos/:id_prod', (req,res) => {
 
 
 
-module.exports = router;
+export default router;
