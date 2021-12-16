@@ -108,15 +108,5 @@
         "thumbnail": "http://localhost:8080/images/16391117712811638511937744escuadra.jpg"
       }
     ]
-  },
-  {
-    "id": 6,
-    "timestamp": "18:30:12",
-    "productos": []
-  },
-  {
-    "id": 7,
-    "timestamp": "18:30:25",
-    "productos": []
   }
 ]

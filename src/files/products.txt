@@ -31,13 +31,13 @@
   },
   {
     "id": 4,
-    "timestamp": "23:51:30",
-    "nombre": "Globo terraqueo",
-    "descripcion": "globo terraqueo 60cm de diamtero",
-    "codigo": "CD202020",
-    "precio": 120,
-    "stock": 12,
-    "thumbnail": "http://localhost:8080/images/16391118908921638511990386globo.jpg"
+    "timestamp": "23:53:12",
+    "nombre": "Cinta metrica",
+    "descripcion": "cinta metrica 100cm ddd",
+    "codigo": "CD202023",
+    "precio": 70,
+    "stock": 10,
+    "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
   },
   {
     "id": 5,
@@ -48,5 +48,15 @@
     "precio": 70,
     "stock": 10,
     "thumbnail": "http://localhost:8080/images/16391119926081638513513515cintametrica.jpg"
+  },
+  {
+    "id": 6,
+    "timestamp": "00:17:44",
+    "nombre": "regla",
+    "descripcion": "regla metalica",
+    "codigo": "cdd55335",
+    "precio": 50,
+    "stock": 14,
+    "thumbnail": "http://localhost:8080/images/1639631864563sd100wifi 155.jpg"
   }
 ]

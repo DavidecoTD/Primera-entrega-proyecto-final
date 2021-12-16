@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { dirname } = require('path');
 const { EventEmitter } = require('stream');
 class Manager {
     //carrito
@@ -13,7 +14,7 @@ class Manager {
             cars.push(carrito)
             try{
                 await fs.promises.writeFile('./files/carrito.txt',JSON.stringify(cars,null,2));
-                return {status:"success",message:"Carrito creadopp"}
+                return {status:"success",message:"Carrito creado"}
             }catch{
                 return {status:"error",message:"No se pudo crear el carrito"} 
             }
@@ -58,6 +59,7 @@ class Manager {
             let product = products.find(v=>v.id===pid);
             let carrito = carritos.find(v=>v.id===id);
             if(!product) return {status:"error", message:"No se encontró producto"};
+            if(carrito.productos.some(prod=>prod.id===product.id)) return {status:"error", message:"El producto que intentas agregar ya existe en el carrito"};
 
             carrito.productos.push(product);
             let carritoAux = carritos.map(us=>{
@@ -113,14 +115,20 @@ class Manager {
     //productos
     async save(product){
         try{
-            let data = await fs.promises.readFile('./files/products.txt','utf-8')
+            let data = await fs.promises.readFile(__dirname+'/files/products.txt','utf-8');
+            console.log(__dirname+'/files/products.txt')
             let products = JSON.parse(data);
             let id = products[products.length-1].id+1;
             product =Object.assign({timestamp:new Date().toTimeString().split(" ")[0]},product);
             product =Object.assign({id:id},product);
-            products.push(product)
+            let auxValid = products.find(prod => prod.codigo===product.codigo);
+            if(auxValid){
+                return {status:"success",message:"El Producto ingresado ya existe, Registro invalido"}
+            }else{
+                products.push(product)
+            }
             try{
-                await fs.promises.writeFile('./files/products.txt',JSON.stringify(products,null,2));
+                await fs.promises.writeFile(__dirname+'/files/products.txt',JSON.stringify(products,null,2));
                 return {status:"success",message:"Producto registrado"}
             }catch{
                 return {status:"error",message:"No se pudo registrar el producto"} 
@@ -129,7 +137,7 @@ class Manager {
             product =Object.assign({timestamp:new Date().toTimeString().split(" ")[0]},product);
             product =Object.assign({id:1},product);
             try{
-                await fs.promises.writeFile('./files/products.txt',JSON.stringify([product],null,2));
+                await fs.promises.writeFile(__dirname+'/files/products.txt',JSON.stringify([product],null,2));
                 return {status:"success", message:"Producto registrado"}
             }
             catch(error){
@@ -153,8 +161,8 @@ class Manager {
     }
     async getAll(){
         try{
-            let data = await fs.promises.readFile('./files/products.txt','utf-8')
             console.log('hola');
+            let data = await fs.promises.readFile('./files/products.txt','utf-8')
             let products = JSON.parse(data);
             if(products){
                 return {status:'Success', products:products}
@@ -180,12 +188,12 @@ class Manager {
     }
     async deleteById(id){
         try{
-            let data = await fs.promises.readFile('./files/carrito.txt','utf-8');
+            let data = await fs.promises.readFile('./files/products.txt','utf-8');
             let products = JSON.parse(data);
-            if(!products.some(us=>us.id===id)) return {status:"error", message:"No hay ningún producto con el id proporcionado"}
-            let aux = products.filter(user=>user.id!==id);
+            if(!products.some(prod=>prod.id===id)) return {status:"error", message:"No hay ningún producto con el id proporcionado"}
+            let aux = products.filter(prod=>prod.id!==id);
             try{
-                await fs.promises.writeFile('./files/carrito.txt',JSON.stringify(aux,null,2));
+                await fs.promises.writeFile('./files/products.txt',JSON.stringify(aux,null,2));
                 return {status:"success",message:"producto eliminado"}
             }catch{
                 return {status:"error", message:"No se pudo eliminar el producto"}
@@ -213,10 +221,11 @@ class Manager {
             let data = await fs.promises.readFile('./files/products.txt','utf-8');
             let products = JSON.parse(data);
             if(!products.some(prod=>prod.id===id)) return {status:"error", message:"No hay ningún producto con el id especificado"}
+            if(products.some(prod=>prod.codigo===body.codigo)) return {status:"error", message:"El codigo de producto ya existe"}
             let result = products.map(prod=>{
                 if(prod.id===id){
-                    body = Object.assign(body)
-                    return body
+                    body = Object.assign({id:prod.id,...body})
+                        return body
                 }
                 else{
                     return prod;

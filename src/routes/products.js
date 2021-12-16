@@ -9,7 +9,8 @@ const authMiddleware = require('../utils');
 router.get('/', (req,res) => {
     manager.getAll().then(result => {
         let arreglo = result.products;
-        if(arreglo.length>0){
+        console.log(result)
+        if(arreglo){
             res.send({usuarios:arreglo});
         }
         else{
@@ -21,7 +22,7 @@ router.get('/', (req,res) => {
 router.get('/:pid',(req,res) => {
     let id = req.params.pid;
     id = parseInt(id);
-    manager.getById(id).then(result => {
+    manager.getproductById(id).then(result => {
         res.send(result.product);
     })
 })
@@ -30,6 +31,7 @@ router.get('/:pid',(req,res) => {
 router.post('/',authMiddleware, upload.single('image'), (req,res) => {
     let file = req.file;
     let cuerpo = req.body;
+    console.log(__dirname)
     cuerpo.precio = parseInt(cuerpo.precio)
     cuerpo.stock = parseInt(cuerpo.stock)
     cuerpo.thumbnail = req.protocol+"://"+req.hostname+":8080"+'/images/'+file.filename;
