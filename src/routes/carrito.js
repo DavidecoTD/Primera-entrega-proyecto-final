@@ -1,7 +1,8 @@
 import express from 'express';
 import upload from '../services/uploader.js';
-import Manager from '../classes/manager.js';
+import Manager from '../contenedores/manager.js';
 import authMiddleware from '../utils.js';
+import {carrito} from '../daos/index.js'
 const router = express.Router();
 const manager = new Manager(); 
 
@@ -26,6 +27,13 @@ router.get('/:id/productos', (req,res) => {
         res.send(result);
     })
 })
+
+router.get('/', (req,res) => {
+    carrito.getAll().then(result => {
+        res.send(result);
+    })
+})
+
 //DELETE
 router.delete('/:id', (req,res) => {
     let id= parseInt(req.params.id);

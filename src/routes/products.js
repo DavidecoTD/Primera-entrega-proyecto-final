@@ -1,15 +1,16 @@
 import express from 'express';
 import upload from '../services/uploader.js';
-import Manager from '../classes/manager.js';
+import Manager from '../contenedores/manager.js';
 import {authMiddleware} from '../utils.js';
 import __dirname from '../utils.js';
+import {productos} from '../daos/index.js'
 const router = express.Router();
 const manager = new Manager(); 
 
 //GET
 router.get('/', (req,res) => {
 
-    manager.getAll().then(result => {
+    productos.getAll().then(result => {
         let arreglo = result.products;
         console.log(result)
         if(arreglo){
@@ -30,16 +31,25 @@ router.get('/:pid',(req,res) => {
 })
 
 //POST
-router.post('/',authMiddleware, upload.single('image'), (req,res) => {
-    let file = req.file;
+router.post('/', (req,res) => {
     let cuerpo = req.body;
-    cuerpo.precio = parseInt(cuerpo.precio)
-    cuerpo.stock = parseInt(cuerpo.stock)
-    cuerpo.thumbnail = req.protocol+"://"+req.hostname+":8080"+'/images/'+file.filename;
-    manager.save(cuerpo).then(result => {
+    console.log(cuerpo)
+    productos.saveOne(cuerpo).then(result => {
         res.send(result);
     })
 })
+
+//POST anterior
+// router.post('/',authMiddleware, upload.single('image'), (req,res) => {
+//     let file = req.file;
+//     let cuerpo = req.body;
+//     cuerpo.precio = parseInt(cuerpo.precio)
+//     cuerpo.stock = parseInt(cuerpo.stock)
+//     cuerpo.thumbnail = req.protocol+"://"+req.hostname+":8080"+'/images/'+file.filename;
+//     manager.save(cuerpo).then(result => {
+//         res.send(result);
+//     })
+// })
 
 //PUT
 router.put('/:pid',authMiddleware,(req,res) => {
